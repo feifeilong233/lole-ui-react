@@ -1,19 +1,18 @@
-/*import { library } from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas);*/
 import './styles/index.scss';
 
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import exp from "constants";
+library.add(fas)
 
 export {default as Alert} from './components/Alert/index';
 
 export {default as Animator} from './components/Animator/index';
 
 export {default as AutoComplete} from './components/AutoComplete/index';
-
-export {default as Background} from './components/Background/index';
 
 export {default as Button} from './components/Button/index';
 
@@ -45,8 +44,6 @@ export {default as MouseListener} from './components/MouseListener/index';
 
 export {default as Notice} from './components/Notice/index';
 
-export {default as Placeholder} from './components/Placeholder/index';
-
 export {default as Progress} from './components/Progress/index';
 
 export {Radio, RadioGroup} from './components/Radio/index';
@@ -62,8 +59,6 @@ export {default as Statistic} from './components/Statistic/index';
 export {default as Switch} from './components/Switch/index';
 
 export {default as Table} from './components/Table/index';
-
-export {default as Title} from './components/Title/index';
 
 export {default as Upload} from './components/Upload/index';
 

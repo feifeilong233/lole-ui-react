@@ -20,19 +20,8 @@ export interface BaseZoneProps{
     textAlign?: textAlignType;
     vertical?: boolean;
     listen?: boolean;
-    angle?:zoneAnglePresets;
     [key:string]: any;
 }
-
-type zoneAnglePresets =
-    'lower-start' |
-    'lower-end' |
-    'upper-end' |
-    'upper-end-lower-end' |
-    'upper-end-lower-start' |
-    'upper-start'|
-    'upper-start-lower-end'|
-    'upper-start-lower-start';
 
 type colorType = 'primary'|'indigo'|'purple'|'pink'|'red'|'orange'|'yellow'|'green'|'teal'|'cyan'|'gray'|'black';
 
@@ -60,7 +49,6 @@ const Zone:FC<BaseZoneProps> = (props) => {
         vertical,
         style,
         listen,
-        angle,
         ...restProps
     } = props
 
@@ -83,23 +71,6 @@ const Zone:FC<BaseZoneProps> = (props) => {
         [`${floated} floated`]: floated,
         'zone':true,
     })
-
-    /**使用预设渲染
-     * */
-    if (angle){
-        const src = `angle-${angle}`;//封装img的src
-        return (
-            <div className="lole-zone basic zone">
-                <img className="lole-image fluid image" src={`/assets/divider/${src}.jpg`} alt=""/>
-                <div className={classnames('img',className)} style={style}>
-                    {
-                        children
-                    }
-                </div>
-            </div>
-        )
-
-    }
 
     return(
         <div className={classes} style={style} {...restProps}>

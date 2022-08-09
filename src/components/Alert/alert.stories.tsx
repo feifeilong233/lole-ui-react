@@ -5,7 +5,6 @@ import Alert from "./alert";
 import Icon from "../Icon/icon";
 import {TextLoop} from "react-text-loop-next";
 import Marquee from "react-fast-marquee";
-import {AiOutlineClose} from "react-icons/ai";
 
 const AlertBasic = () => {
     return(
@@ -28,7 +27,7 @@ const AlertIcon = () => {
     return(
         <>
             <Alert type='info' showIcon/>
-            <Alert type='success' showIcon icon={<AiOutlineClose/>}/>
+            <Alert type='success' showIcon icon={<Icon icon={'search'}/>}/>
         </>
     )
 }
@@ -44,7 +43,7 @@ const AlertDescription = () => {
 const AlertAction = () => {
     return(
         <>
-            <Alert message='Please Enter Message' action={<AiOutlineClose/>}/>
+            <Alert message='Please Enter Message' action={<Icon icon={'info'}/>}/>
             <Alert message='Please Enter Message' action='Action'/>
         </>
     )
@@ -62,7 +61,7 @@ const AlertCustomizationClose=()=>{
     return(
         <>
             <Alert message='Please Enter Message.' closeable closeText='Close'/>
-            <Alert message='Please Enter Message.' closeable closeIcon={<AiOutlineClose/>}/>
+            <Alert message='Please Enter Message.' closeable closeIcon={<Icon icon={'warning'}/>}/>
         </>
     )
 }

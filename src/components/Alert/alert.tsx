@@ -1,8 +1,8 @@
 import React, {ReactNode} from "react";
 import classNames from "classnames";
 import Icon from "../Icon/icon";
+import {replaceElement} from "../utils/reactNode";
 import Animator from "../Animator/animator";
-import {AiOutlineCheckSquare} from "react-icons/ai";
 
 export type AlertType = 'success'|'info'|'warning'|'error';
 
@@ -72,10 +72,9 @@ const Alert:React.FC<AlertProps> = (props) => {
         //props.onClose?.(e);
     };
 
-    const classes = classNames('lole-alert',className,{
-        [`${type}`]: type,
-        [`${bordered}`]:bordered,
-        'alert':true
+    const classes = classNames('alert',className,{
+        [`alert-${type}`]: type,
+        [`alert-${bordered}`]:bordered,
     })
 
     /** 由Animator组件控制 */
@@ -90,7 +89,7 @@ const Alert:React.FC<AlertProps> = (props) => {
         if (icon)
             return icon;
         else
-            return <span className={`icon`} ><AiOutlineCheckSquare/></span>;
+            return <span className={`alert-icon`} ><Icon icon='info'/></span>;
 
         /*if (icon){
             return replaceElement(icon, <span className={`alert-icon`} ><Icon icon='info'/></span>,()=>({
@@ -101,11 +100,13 @@ const Alert:React.FC<AlertProps> = (props) => {
 
     const renderCloseIcon = () => {
         return isClosable ? (
-            <i onClick={handleClose}
-               className='close'
+            <button
+                type='button'
+                onClick={handleClose}
+                className='alert-close-icon'
             >
                 {closeText ? <span className='alert-close-text'>{closeText}</span> : closeIcon}
-            </i>
+            </button>
         ) : null;
     }
 
@@ -123,15 +124,15 @@ const Alert:React.FC<AlertProps> = (props) => {
                         {
                             showIcon?renderIconNode():null
                         }
-                        <div className='container'>
+                        <div className='alert-container'>
                             {
-                                message?<div className='message'>{message}</div>:null
+                                message?<div className='alert-message'>{message}</div>:null
                             }
                             {
-                                description?<div className='description'>{description}</div>:null
+                                description?<div className='alert-description'>{description}</div>:null
                             }
                             {
-                                action?<div className='action'>{action}</div>:null
+                                action?<div className='alert-action'>{action}</div>:null
                             }
                         </div>
 
